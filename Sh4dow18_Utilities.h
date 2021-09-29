@@ -2,6 +2,8 @@
 #define SH4DOW18UTILITIES_H
 class Sh4dow18_Utilities {
 public:
+	Sh4dow18_Utilities() {
+	}
 	// This method formats the ID so that it can later be verified.
 	// Example 1: 3555777 -> 3-0555-0777
 	// Example 2: 305550777 -> 3-0555-0777
