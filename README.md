@@ -1,5 +1,7 @@
 # Sh4dow18 Utilities for C++, Java and Python
 
+![SU](readme/01_SU.png)
+
 # Overview
 This project aims to help to do basic verifications in the programming languages ​​C++, Java and Python, this
 so as not to have to create these verifications over and over again.
@@ -9,11 +11,15 @@ Version **1.0**
 
 # Warning
 
+![WARNING](readme/02_warning.jpg)
+
 It should be mentioned that the ID and phone number verifications were made with the Costa Rican format, in
 addition, the email verification only works with the ".com" extension. These are templates, they can perfectly
 be altered depending on what is needed.
 
 # What is a Programming Language?
+
+![LENGUAJE](readme/03_lenguaje.jpg)
 
 A programming language is a formal language that provides a programmer with the ability to write a series of
 instructions so that a machine can understand and execute those instructions.
@@ -32,6 +38,8 @@ multi-paradigm programming language, since it partially supports object-orientat
 and functional programming.
 
 # Using SU
+
+![LOGO](readme/04_Logo SU.png)
 
 To use the Sh4dow Utilities, the file corresponding to the language in which it is being programmed must be
 added. For C++, the '.h' is used, in Java it is the '.java' and in Python it would be '.py'. Subsequently,
