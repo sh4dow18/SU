@@ -39,7 +39,7 @@ and functional programming.
 
 # Using SU
 
-![LOGO](readme/04_Logo SU.png)
+![LOGO](readme/04_Logo_SU.png)
 
 To use the Sh4dow Utilities, the file corresponding to the language in which it is being programmed must be
 added. For C++, the '.h' is used, in Java it is the '.java' and in Python it would be '.py'. Subsequently,
