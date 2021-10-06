@@ -57,7 +57,7 @@ if a char is actually an integer, and finally to find a valid email, you can use
 "substr" that will create a substring at the necessary time and in turn will search for the necessary
 substrings for the check.
 
-![JAVA](readme/07_python.jpg)
+![JAVA](readme/07_java.jpg)
 
 In Java it is different, because the string does not behave in the same way as in C++, because it no longer
 behaves like an array, like the one in the C++ vector library, but it behaves like a class, for Therefore,
