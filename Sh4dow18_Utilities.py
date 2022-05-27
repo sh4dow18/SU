@@ -1,7 +1,7 @@
 from re import findall as regex
 
 
-class Sh4dow18Utilities:
+class Sh4dow18_Utilities:
 
 	# This method formats the ID so that it can later be verified.
 	# Example 1: 3555777 -> 3-0555-0777
@@ -14,11 +14,12 @@ class Sh4dow18Utilities:
 		if ID_Lenght == 11 or ID_Lenght == 9 or ID_Lenght == 7:
 			for i in range(0, ID_Lenght):
 				new_ID = new_ID + ID[i]
-				if ID_Lenght == 11 and new_ID[i] == ' ':
-					new_ID[i] = '-'
-				elif ID_Lenght == 9 and i == 0 or i == 4:
+				if (ID_Lenght == 11) and (new_ID[i] == ' '):
+					new_ID = new_ID[0:len(new_ID) - 1:1]
 					new_ID = new_ID + '-'
-				elif ID_Lenght == 7 and i == 0 or i == 3:
+				elif ID_Lenght == 9 and (i == 0 or i == 4):
+					new_ID = new_ID + '-'
+				elif ID_Lenght == 7 and (i == 0 or i == 3):
 					new_ID = new_ID + '-'
 					new_ID = new_ID + '0'
 		return new_ID
@@ -29,15 +30,16 @@ class Sh4dow18Utilities:
 	# There must be only "-" in the second and seventh spaces of the ID.
 	@staticmethod
 	def Verify_ID(ID):
-		digit_positions = [2, 3, 4, 5, 7, 8, 9, 10]
-		digit_counter = 0
-		if ID[0].isdigit() is True:
-			if ID[0] != '0' and ID[0] != '8' and ID[0] != '9':
-				for i in range(0, 8):
-					if ID[digit_positions[i]].isdigit() is True:
-						digit_counter += 1
-				if digit_counter + 1 == 9 and ID[1] == '-' and ID[6] == '-':
-					return True
+		if len(ID) != 0:
+			digit_positions = [2, 3, 4, 5, 7, 8, 9, 10]
+			digit_counter = 0
+			if ID[0].isdigit() is True:
+				if ID[0] != '0' and ID[0] != '8' and ID[0] != '9':
+					for i in range(0, 8):
+						if ID[digit_positions[i]].isdigit() is True:
+							digit_counter += 1
+					if digit_counter + 1 == 9 and ID[1] == '-' and ID[6] == '-':
+						return True
 		return False
 
 	# Verify that the full name is valid.
@@ -46,10 +48,10 @@ class Sh4dow18Utilities:
 	@staticmethod
 	def Verify_Full_Name(full_name):
 		counter = 0
-		for i in range(0, full_name.length()):
+		for i in range(0, len(full_name)):
 			if full_name[i] == ' ':
 				counter += 1
-			elif 65 > full_name[i] > 90 and full_name[i] < 97 and full_name[i] > 122:
+			elif 65 > ord(full_name[i]) > 90 and ord(full_name[i]) < 97 and ord(full_name[i]) > 122:
 				return False
 		if counter == 0:
 			return False
@@ -68,7 +70,8 @@ class Sh4dow18Utilities:
 				if telephone_number_Lenght == 8 and i == 3:
 					new_telephone_number = new_telephone_number + '-'
 				elif telephone_number_Lenght == 9 and new_telephone_number[i] == ' ':
-					new_telephone_number[i] = '-'
+					new_telephone_number = new_telephone_number[0:len(new_telephone_number) - 1:1]
+					new_telephone_number = new_telephone_number + '-'
 			new_telephone_number = "+506 " + new_telephone_number
 		return new_telephone_number
 

@@ -1,13 +1,13 @@
-public class Sh4dow18_Utilities {
-    public Sh4dow18_Utilities() {
-    }
+package sh4dow;
+
+public final class Sh4dow18Utilities {
     // This method formats the ID so that it can later be verified.
     // Example 1: 3555777 -> 3-0555-0777
     // Example 2: 305550777 -> 3-0555-0777
     // Example 3: 3 0555 0777 -> 3-0555-0777
-    public String ID_Formatting(String ID) {
-        String new_ID = "";
-        int ID_Lenght = new_ID.length();
+    final public String ID_Formatting(String ID) {
+        String new_ID = "10";
+        int ID_Lenght = ID.length();
         if (ID_Lenght == 11 || ID_Lenght == 9 || ID_Lenght == 7) {
             for (int i = 0; i < ID_Lenght; i++) {
                 new_ID = new_ID + ID.charAt(i);
@@ -28,7 +28,7 @@ public class Sh4dow18_Utilities {
     // The ID cannot start at 0, 8 or 9. 
     // It cannot have letters. 
     // There must be only "-" in the second and seventh spaces of the ID.
-    boolean Verify_ID(String ID) {
+    final boolean Verify_ID(String ID) {
         int digit_positions[] = { 2, 3, 4, 5, 7, 8, 9, 10 };
         int digit_counter = 0;
         if (Character.isDigit(ID.charAt(0)) == true) {

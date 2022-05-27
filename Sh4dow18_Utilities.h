@@ -2,13 +2,11 @@
 #define SH4DOW18UTILITIES_H
 class Sh4dow18_Utilities {
 public:
-	Sh4dow18_Utilities() {
-	}
 	// This method formats the ID so that it can later be verified.
 	// Example 1: 3555777 -> 3-0555-0777
 	// Example 2: 305550777 -> 3-0555-0777
 	// Example 3: 3 0555 0777 -> 3-0555-0777
-	std::string ID_Formatting(std::string ID) {
+	static std::string ID_Formatting(std::string ID) {
 		std::string new_ID = "";
 		size_t ID_Lenght = ID.length();
 		if (ID_Lenght == 11 || ID_Lenght == 9 || ID_Lenght == 7) {
@@ -32,7 +30,7 @@ public:
 	// The ID cannot start at 0, 8 or 9. 
 	// It cannot have letters. 
 	// There must be only "-" in the second and seventh spaces of the ID.
-	bool Verify_ID(std::string ID) {
+	static bool Verify_ID(std::string ID) {
 		const unsigned short int digit_positions[8] = { 2, 3, 4, 5, 7, 8, 9, 10 };
 		unsigned short int digit_counter = 0;
 		if (isdigit(ID[0]) == true) {
@@ -52,7 +50,7 @@ public:
 	// Verify that the full name is valid.
 	// The full name must have at least one space indicating that there is a name with your last name. 
 	// The characters that make up the name must only be uppercase or lowercase letters.
-	bool Verify_Full_Name(std::string full_name) {
+	static bool Verify_Full_Name(std::string full_name) {
 		unsigned short int counter = 0;
 		for (size_t i = 0; i < full_name.length(); i++) {
 			if (full_name[i] == ' ') {
@@ -70,7 +68,7 @@ public:
 	// This method formats the phone number so that it can be validated later.
 	// Example 1: 87654321 -> +506 8765-4321
 	// Example 2: 8765 4321 -> +506 8765-4321
-	std::string Phone_Number_Formatting(std::string telephone_number) {
+	static std::string Phone_Number_Formatting(std::string telephone_number) {
 		std::string new_telephone_number = "";
 		size_t telephone_number_Lenght = telephone_number.length();
 		if (telephone_number_Lenght == 8 || telephone_number_Lenght == 9) {
@@ -89,7 +87,7 @@ public:
 	}
 	// This function allows to validate if the phone that was formatted is valid.
 	// In certain positions there must be only numbers. In the other positions the respective character.
-	bool Verify_Telephone_Number(std::string telephone_number) {
+	static bool Verify_Telephone_Number(std::string telephone_number) {
 		if (telephone_number != "") {
 			size_t telephone_number_Lenght = telephone_number.length();
 			if (telephone_number_Lenght == 14) {
@@ -109,7 +107,7 @@ public:
 	}
 	// Here the email is verified. 
 	// Only emails that have an "@" indicating that it has a domain with the extension ".com" are allowed.
-	bool Verify_Email(std::string email) {
+	static bool Verify_Email(std::string email) {
 		size_t sign_position = 0;
 		sign_position = email.find("@");
 		if (sign_position != 0 && sign_position < email.length()) {
